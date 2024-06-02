@@ -2,7 +2,7 @@ import asyncio
 import warnings
 import streamlit as st
 
-from classes.dalunos_app import StudentInfoApp
+from classes.dentrevistas_app import StudentInfoApp
 from updateDB.main import run_updateDB
 from updateDB.create_service import create_services
 
