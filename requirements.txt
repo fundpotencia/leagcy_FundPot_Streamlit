@@ -1,0 +1,10 @@
+pandas
+authlib
+requests
+openpyxl
+xlsxwriter
+python-dotenv
+google-auth-oauthlib
+google-auth
+google-api-python-client
+streamlit_local_storage
