@@ -1,7 +1,10 @@
+import asyncio
+
 from dotenv import load_dotenv
 from datetime import datetime
 
 from updateDB.create_service import create_services
+
 
 def update_google_sheets(filename, folder_id, spreadsheet_id, token_sheet_name, token_str):
     """
@@ -23,9 +26,9 @@ def update_google_sheets(filename, folder_id, spreadsheet_id, token_sheet_name, 
     :type token_str: str.
     """
     load_dotenv()
-    services = create_services()
-    drive_service = services['drive']  # Get the Drive service
-    sheets_service = services['sheets']  # Get the Sheets service
+    drive_service = await create_services()['drive']  # Get the Drive service
+    sheets_service = await create_services()['sheets']  # Get the Sheets service
+
 
     # 1. Backup Existing File (if it exists)
     query = f"name = '{filename}' and '{folder_id}' in parents and trashed=false"
