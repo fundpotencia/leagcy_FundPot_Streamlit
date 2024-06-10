@@ -1,3 +1,5 @@
+import asyncio
+
 from dotenv import load_dotenv
 from datetime import datetime
 
@@ -23,7 +25,7 @@ def update_google_sheets(filename, folder_id, spreadsheet_id, token_sheet_name, 
     :type token_str: str.
     """
     load_dotenv()
-    services = create_services()
+    services, _ = asyncio.run(create_services())
     drive_service = services['drive']  # Get the Drive service
     sheets_service = services['sheets']  # Get the Sheets service
 

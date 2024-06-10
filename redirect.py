@@ -72,7 +72,7 @@ def Auth():
         # Authentication was performed
         code = st.query_params["code"]
         decoded_code = urllib.parse.unquote(code)
-        st.write(f"Decoded code is: {decoded_code}")
+        #st.write(f"Decoded code is: {decoded_code}")
 
         # Fetch the token and create credentials
         token = flow.fetch_token(code=decoded_code)
@@ -85,7 +85,7 @@ def Auth():
         # Transform and save token to session state
         if 'token' not in st.session_state:
             st.session_state['token'] = transform_creds_dict(creds.__dict__)
-            st.write("session state token", st.session_state['token'])
+            #st.write("session state token", st.session_state['token'])
 
         aux_token_str = json.dumps(st.session_state['token'])
 
@@ -116,4 +116,4 @@ head()
 if Auth():
     st.success("Usuário autenticado com sucesso!")
     link_url = "https://fundpot-itajr-home.streamlit.app/"
-    st.markdown (f'''text-align: center;<h5>Autenticação concluída! Clique aqui para voltar à página principal: <a target="_self" href="{link_url}">🏠 Home</a></h5>''', unsafe_allow_html=True)
+    st.info (f'''text-align: center;<h5>Autenticação concluída! Clique aqui para voltar à página principal: <a target="_self" href="{link_url}">🏠 Home</a></h5>''', unsafe_allow_html=True)

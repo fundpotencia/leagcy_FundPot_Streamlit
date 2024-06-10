@@ -59,7 +59,17 @@ async def oauth_flow(client_secrets_dict, SCOPES):
         return
 
     auth_url = await write_authorization_url(flow=flow)
-    st.markdown("<h1 style='text-align: center; font-size: 30px;'><br>A autenticação falhou :(</h1>", unsafe_allow_html=True)
 
-    st.markdown(f'''<h4> Por favor, faça login no link a seguir: <a target="_self" href="{auth_url}"> Autenticar </a></h4>''',
-             unsafe_allow_html=True)
+    st.markdown(f"""
+<div style='text-align: center;'>
+    <h1 style='font-size: 30px;'><br>A autenticação falhou :(<br><br></h1>
+    <h4>Por favor, faça login no link a seguir: <a target="_blank" href="{auth_url}">Autenticar</a></h4>
+    <h3 style='font-size: 30px; color: white;'><br>Em caso de já ter realizado a autenticação, por favor recarregue a página! 
+    Isso pode ser feito clicando no F5 ou no símbolo ⟳ do navegador</h3>
+</div>
+""", unsafe_allow_html=True)
+
+
+
+
+

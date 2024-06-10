@@ -115,7 +115,7 @@ class StudentInfoApp:
                 st.markdown('Verifique se não há nada fora do padrão, numero errado de intervalos, letras maiúsculas, colunas com nomes errado, colunas que deveriam ter o mesmo nome, etc...')
                 if st.button('Salvar'):
                     st.session_state.df = merged_df
-                    self.db_manager.save_db(st.session_state.df)
+                    self.db_manager.save_db(st.session_state.df, st.session_state.dftoken)
                     self.set_save_state()
                 elif st.button('Cancelar'):
                     st.session_state.clear()  # Limpa a sessão
