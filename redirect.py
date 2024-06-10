@@ -109,11 +109,11 @@ def Auth():
             )
     else:
         link_url = "https://fundpot-itajr-home.streamlit.app/"
-        st.markdown (f'''<h5> Usuário já autenticado! Clique aqui para voltar à página principal: <a target="_self" href="{link_url}">🏠 Home</a></h5>''', unsafe_allow_html=True)
+        st.markdown (f'''<h5> Usuário já autenticado! Clique aqui para voltar à página principal: <a target="_blank" href="{link_url}">🏠 Home</a></h5>''', unsafe_allow_html=True)
 
 
 head()
 if Auth():
     st.success("Usuário autenticado com sucesso!")
     link_url = "https://fundpot-itajr-home.streamlit.app/"
-    st.info (f'''text-align: center;<h5>Autenticação concluída! Clique aqui para voltar à página principal: <a target="_self" href="{link_url}">🏠 Home</a></h5>''', unsafe_allow_html=True)
+    st.markdown(f'''text-align: center;<h5>Autenticação concluída! Clique aqui para voltar à página principal: <a target="_blank" href="{link_url}">🏠 Home</a></h5>''', unsafe_allow_html=True)
