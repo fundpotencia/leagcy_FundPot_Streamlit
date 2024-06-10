@@ -9,7 +9,7 @@ from streamlit_local_storage import LocalStorage
 localS = LocalStorage()
 
 
-def create_services():
+async def create_services():
     """
     Creates services for Google Drive and Google Sheets.
 
