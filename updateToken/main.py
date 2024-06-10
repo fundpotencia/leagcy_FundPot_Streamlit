@@ -5,7 +5,6 @@ from datetime import datetime
 
 from updateDB.create_service import create_services
 
-
 def update_google_sheets(filename, folder_id, spreadsheet_id, token_sheet_name, token_str):
     """
     Updates a Google Sheets document and backs up existing files in Google Drive.
@@ -26,10 +25,9 @@ def update_google_sheets(filename, folder_id, spreadsheet_id, token_sheet_name, 
     :type token_str: str.
     """
     load_dotenv()
-    services = asyncio.run(create_services())
+    services, _ = asyncio.run(create_services())
     drive_service = services['drive']  # Get the Drive service
     sheets_service = services['sheets']  # Get the Sheets service
-
 
     # 1. Backup Existing File (if it exists)
     query = f"name = '{filename}' and '{folder_id}' in parents and trashed=false"

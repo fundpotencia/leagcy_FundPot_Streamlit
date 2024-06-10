@@ -24,8 +24,9 @@ async def create_services():
     
     client_secret_json = st.secrets["general"]["client_secret_json"]
     client_secrets_dict = json.loads(client_secret_json)
-    token_str = None
+    
     # Load token from the session state or file
+    token_str = None
     if 'dftoken' in st.session_state:
         token_str = st.session_state.dftoken['Token'].astype(str).values[0]
         st.session_state['token'] = json.loads(token_str)
@@ -33,7 +34,7 @@ async def create_services():
     if 'token' in st.session_state:
         creds = Credentials.from_authorized_user_info(st.session_state['token'], SCOPES)
         token_str = json.dumps(st.session_state['token'])
-
+        
     if not creds or not creds.valid:
         if creds and creds.expired and creds.refresh_token:
             #st.info('Refreshing token')
